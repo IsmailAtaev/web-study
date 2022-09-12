@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <button class="btn">Click1</button>
+        <button class="btn">Click2</button>
+        <button class="btn">Click3</button>
+        <button class="btn">Click4</button>
+    </div>
+
+    <script>
+
+        const buttons = document.querySelector('.btn');
+
+        const handleClick = (event) => {
+            console.log(event.target)
+        }
+
+
+       buttons.forEach(button => {
+           button.addEventListener('click',handleClick)
+       })
+    </script>
+</body>
+
+</html>
