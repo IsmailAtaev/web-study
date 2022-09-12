@@ -1,0 +1,68 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.header {
+    background-color: rgb(161, 189, 236);
+    max-width: 1400px;
+    margin: auto;
+    min-width: 1000px;
+    height: 60px;
+}
+
+.headerLi {
+   margin-left: 20px;
+   font-size: 20px;
+   padding: 0;
+   display: inline;
+}
+
+.headerUl {
+  padding-top: 20px;
+  padding-left: 700px ;
+  list-style: none;
+}
+/*main profil info */
+
+.profileLogo {  
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  margin-left: 300px;
+  margin-top: 50px;
+}
+
+.profileInfo {
+  margin-left: 300px;
+  margin-top: 100px;
+  position: relative;
+  text-align: center;
+}
+
+.mH1{
+    padding-bottom: 10px;
+}
+
+.profileLine {
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(255, 130, 199); /* Параметры линии */
+}
+
+/**/
+.profileLongLine {
+  max-width: 1400px;
+  margin: auto;
+  min-width: 1000px;
+  padding-top: 20px;
+  border-bottom: 5px solid rgb(198, 204, 235); /* Параметры линии */
+}
+
+.contactInfo{
+  padding-left: 20%;
+}
+
+.skillsInfo {
+  margin-left: 30%;
+}
