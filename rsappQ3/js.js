@@ -15,7 +15,6 @@
 }
 console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))*/
 
-//Task 1.7
 /*
 function formatDuration(seconds) {
   if (seconds === 0) return "now";
@@ -81,175 +80,104 @@ function formatDuration(seconds) {
 }
 */
 
+//Task 1.7
+/*
+function formatDuration(totalSeconds) 
+{
+  if (totalSeconds === 0)
+  {
+    return "now";
+  }
 
-/*function formatDuration(seconds) {
-  if (seconds === 0) return "now";
-  let d = new Date(seconds * 1000);
-  
-  console.log(d);
+  let resultArray = [];
+  let result = "";
 
-  let arrDate = d.toLocaleString().split(",");
-  let date = arrDate[0];
-  let time = arrDate[1];
-  let [h, m, s] = time.split(":");
-  let [da, mon, y] = date.split("/");
+  let secs = totalSeconds % 60;
 
-  let second = Number(s.split(" ")[0]);
-  let minutes = Number(m);
-  let hour = Number(h);
-  
-  let day = Number(da);
-  let month = Number(mon);
-  let year = Number(y);
+  let totalMins = (totalSeconds - secs) / 60;
+  let mins = totalMins % 60;
+  let totalHours = (totalMins - mins) / 60;
+  let hours = totalHours % 24;
+  let totalDays = (totalHours - hours) / 24;
+  let days = totalDays % 365;
+  let years = (totalDays - days) / 365;
 
-  hour -= 3;
-  day -= 1;
-  month -= 1;
-  year -= 1970;
-  debugger
-  if (year > 00 && day > 00 && hour > 00 && minutes > 00 && second > 00) {
-    return year + " years, " + day + " days, " + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-  } else if (day > 00 && hour > 00 && minutes > 00 && second > 00) {
-    return  day + " days, " + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-  } else if(hour > 00 && minutes > 00 && second > 00){
-    return + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-  } else if(minutes > 00 && second > 00 ) {
+  if (years !== 0)
+  {
+    resultArray.push(`${years}`  + (years > 1 ? " years" : " year"));
+  }
 
-    return minutes + " minutes and " + second + " seconds";
-  } else if (second > 00){
-    return  second + " seconds";
-  } 
-  return d;
+  if (days !== 0)
+  {
+    resultArray.push(`${days}`  + (days > 1 ? " days" : " day"));
+  }
+
+  if (hours !== 0)
+  {
+    resultArray.push(`${hours}`  + (hours > 1 ? " hours" : " hour"));
+  }
+
+  if (mins !== 0)
+  {
+    resultArray.push(`${mins}`  + (mins > 1 ? " minutes" : " minute"));
+  }
+
+  if (secs !== 0)
+  {
+    resultArray.push(`${secs}`  + (secs > 1 ? " seconds" : " second"));
+  }
+
+  let len = resultArray.length;
+  if (len === 1)
+  {
+    return resultArray[0];
+  }
+
+  if (len === 2)
+  {
+    return resultArray[0] + " and " + resultArray[1];
+  }
+
+  for (let i = 0; i < len; i++)
+  {
+    if (i === 0)
+    {
+      result += resultArray[i];
+      continue;
+    }
+
+    if (i === len - 1)
+    {
+      result += " and " + resultArray[i];
+      continue;
+    }
+
+    result += ", " + resultArray[i];
+  }
+
+  return result;
 }*/
 
 
-
-function formatDuration(seconds) {
-  if (seconds === 0) return "now";
-  let d = new Date(seconds * 1000);
-
-  let arrDate = d.toLocaleString().split(",");
-  let date = arrDate[0];
-  let time = arrDate[1];
-  let [h, m, s] = time.split(":");
-  let [da, mon, y] = date.split("/");
-
-  let second = Number(s.split(" ")[0]);
-  let minutes = Number(m);
-  let hour = Number(h);
-  
-  let day = Number(da);
-  let month = Number(mon);
-  let year = Number(y);
-
-  hour -= 3;
-  day -= 1;
-  month -= 1;
-  year -= 1970;
-  
-  if (year > 00) {
-    if(day > 00 ) {
-      if(hour > 00) {
-        if(minutes > 00 ) {
-          if(second > 00) {
-            return year + " years, " + day + " days, " + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-          }
-          return year + " years, " + day + " days, " + hour + " hours and " + minutes + " minutes ";
-        } else {
-          if(second > 00){
-            return year + " years, " + day + " days, " + hour + " hours and " + second + " seconds";
-          }
-          return year + " years, " + day + " days, " + hour + " hours";
-        }
-      }else {
-        if(minutes > 00){
-          if(second > 00) {
-            return year + " years, " + day + " days, " + minutes + " minutes and " + second + " seconds";
-          }
-          return year + " years, " + day + " days and " + minutes + " minutes" ;
-        } else {
-          if(second > 00) {
-            return year + " years, " + day + " days and " + second + " seconds";
-          }
-          return year + " years and " + day + " days ";
-        }
-        return year + " years, " + day + " days, " + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-    }
-  } else {
-    if(hour > 00) {
-      if(minutes > 00){
-        if(second > 00){
-          return year + " years, " + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-        } else {
-          return year + " years, " + hour + " hours, " + minutes + " minutes";
-        }
-        } else {
-          if(second > 00){
-            return year + " years, " + hour + " hours and " + second + " seconds";
-          }   
-          return year + " years and " + hour + " hours ";
-        }
-    }
-  }
-  } else {
-    if(day > 00){
-      if(hour > 00) {
-        if(minutes > 00) {
-          if (second > 00) {
-            return day + " days, " + hour + " hours, " + minutes + " minutes and " + second + " seconds";
-          }
-          return day + " days, " + hour + " hours and " + minutes + " minutes ";
-        } else {
-          if(second > 00) {
-            return day + " days, " + hour + " hours and " + second + " seconds";
-          }
-          return day + " days and " + hour + " hours ";
-        }
-      } else {
-        if(minutes > 00) {
-          if(second > 00) {
-            return day + " days, " + minutes + " minutes and " + second + " seconds";
-          }
-          return day + " days and "+ minutes + " minutes";
-        } else {
-          if(second > 00) {
-            return day + " days and " + second + " seconds";
-          }
-          return day + " days ";
-        }
-      }
-    } else {
-      if(hour >00) {
-        if(minutes > 00) {
-          if(second > 0) {
-            return hour + " hours, " + minutes + " minutes and " + second + " seconds";
-          }
-          return hour + " hours and " + minutes + " minutes";
-        } else {
-          if(second > 0) {
-            return hour + " hours and " + second + " seconds";
-          }
-          return hour + " hours";
-        }
-      } else {
-        if(minutes > 00) {
-          if(second > 00) {
-            return minutes + " minutes and " + second + " seconds";
-          }
-          return minutes + " minutes";
-        } else {
-          if(second > 00) {
-            return second + " seconds";
-          }
-          return "now";
-        }
-      }
-    }
-  }
-  return d;
+function hexToRgb(hex) {
+  var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+    r: parseInt(result[1], 16),
+    g: parseInt(result[2], 16),
+    b: parseInt(result[3], 16)
+  } : null;
 }
 
-console.log(formatDuration(3662));
+
+
+function brightest(colors){
+  
+  let maxColor = null;
+  colors.forEach(element => {
+    let rgbColor = hexToRgb(element);
+    
+  })
 
 
 
+}
