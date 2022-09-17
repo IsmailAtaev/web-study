@@ -15,71 +15,6 @@
 }
 console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"))*/
 
-/*
-function formatDuration(seconds) {
-  if (seconds === 0) return "now";
-  let min = seconds / 60;
-  //console.log("" +)
-  console.log("min "+ min )
-  if (min >= 0.6) {
-    let hour = min / 60;
-    console.log("hour " +hour)
-    if (hour >= 24) {
-      let days = hour / 24;
-
-      if (days >= 365) {
-        let years = days / 365;
-        let tempDay = years.toString().split(".")[1][0];
-        if (tempDay == 0) {
-          return Math.trunc(years) + " years";
-        }
-        return Math.trunc(years) + " years, days  " + tempDay;
-      }
-
-      if (days >= 1) {
-        console.log(days)
-        if (days % 2) {
-          return Math.trunc(days) + " days ";
-        }
-        return (
-          Math.trunc(days) +
-          " days and minutes " +
-          days.toString().split(".")[1][0] +
-          days.toString().split(".")[1][1]
-        );
-      }
-
-      if (days % 2) return Math.trunc(days) + " hours";
-
-      return (
-        Math.trunc(days) +
-        " hours and  minutes " +
-        days.toString().split(".")[1][0]
-      );
-    }
-
-    if (hour >= 1) {
-      if (hour % 2) return Math.trunc(hour) + " hour";
-
-      return (
-        Math.trunc(hour) +
-        " hour and minutes " +  hour.toString().split(".")[1][0]
-      );
-    }
-
-    if (min % 2 === 0) return Math.trunc(min) + " minutes";
-
-    let MinTemp = min.toString().split(".")[1][0] + min.toString().split(".")[1][1];
-    return (
-      Math.trunc(min) +
-      " minutes and seconds " + MinTemp
-      
-    );
-  }
-  return seconds + " second";
-}
-*/
-
 //Task 1.7
 /*
 function formatDuration(totalSeconds) 
@@ -158,7 +93,8 @@ function formatDuration(totalSeconds)
   return result;
 }*/
 
-
+/* 
+1.0
 function hexToRgb(hex) {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
@@ -168,16 +104,34 @@ function hexToRgb(hex) {
   } : null;
 }
 
-
-
 function brightest(colors){
-  
   let maxColor = null;
   colors.forEach(element => {
     let rgbColor = hexToRgb(element);
-    
+    let 
   })
+}*/
 
 
-
+// Task 1.8 
+function head(arr) {
+  if (arr.length === 0 || arr.length === 1) return [];
+  return arr[0];
 }
+
+function tail(arr) {
+  if (arr.length === 0 || arr.length === 1) return [];
+  return arr.slice(1, arr.length);
+}
+
+function init(arr) {
+  if (arr.length === 0 || arr.length === 1) return [];
+  return arr.slice(0, arr.length - 1);
+}
+
+function last(arr) {
+  if (arr.length === 0 || arr.length === 1) return [];
+  return arr[arr.length - 1];
+}
+
+console.log(last([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
