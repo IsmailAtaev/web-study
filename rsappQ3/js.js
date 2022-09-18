@@ -112,10 +112,10 @@ function brightest(colors){
   })
 }*/
 
-
-// Task 1.8 
+// Task 1.8
+/*
 function head(arr) {
-  if (arr.length === 0 || arr.length === 1) return [];
+  if (arr.length === 0) return [];
   return arr[0];
 }
 
@@ -130,8 +130,22 @@ function init(arr) {
 }
 
 function last(arr) {
-  if (arr.length === 0 || arr.length === 1) return [];
+  if (arr.length === 0) return [];
   return arr[arr.length - 1];
 }
+*/
 
-console.log(last([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
+function deepCount(a) {
+  totalCount = 0;
+  for (let i = 0; i < a.length; i++) {
+    if (Array.isArray(a[i])) {
+      totalCount += deepCount(a[i]);
+      ++totalCount;
+    } else {
+      ++totalCount;
+    }
+  }
+  return totalCount;
+}
+
+console.log(deepCount([1, 2, [3, 4, [5]]]));
