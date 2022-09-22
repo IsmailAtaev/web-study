@@ -1,4 +1,4 @@
-/** Author Ismayyl*/
+// Author Ismayyl
 
 // Task 1.1
 /*function highAndLow(numbers) {
@@ -135,6 +135,8 @@ function last(arr) {
 }
 */
 
+// task 1.9
+/*
 function deepCount(a) {
   totalCount = 0;
   for (let i = 0; i < a.length; i++) {
@@ -146,6 +148,109 @@ function deepCount(a) {
     }
   }
   return totalCount;
+}*/
+
+/*
+const details = {
+  name: 'John!',
+}
+function getMessage (msg) {
+  return `${msg} ${this.name}`;
 }
 
-console.log(deepCount([1, 2, [3, 4, [5]]]));
+console.log(getMessage.apply(details,['Hello']))
+
+function foo() {console.log(this)}
+foo.call(null);
+
+
+var a =1, b =function a(x) {x&& a(--x);};
+console.log(a);
+
+var name = 'John';
+
+function printName() {
+  console.log(name);
+  var name = 'Peter';
+  console.log(name);
+
+}
+
+printName();
+
+for (var i = 0; i < 3; i++) {
+  setTimeout(function () {
+    console.log(i);
+  }, 1000);
+}
+
+
+function foo(a, b) {
+  return a*b;
+}
+
+const bar = foo.bind(null,2);
+
+console.log(bar(2));
+
+function getThis() {
+  return this;
+}
+
+function f1() {
+  console.log(Function.getArguments(this));
+}
+
+
+function f2() {
+  console.log(arguments);
+}
+
+
+
+
+function f3() {
+  console.log(f3.getArguments());
+}
+
+
+function f4() {
+  console.log(this.arguments);
+}
+
+
+console.log(f4());*/
+
+function getNumberOfOnes(binaryStr) {
+  let totalCount = 0;
+  for (let k = 0; k < binaryStr.length; k++) {
+    if (binaryStr[k] == "1") ++totalCount;
+  }
+  return totalCount;
+}
+
+function sortByBit(arr) {
+  let n = arr.length;
+  arr.sort((a, b) => a - b);
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = 0; j < n - i - 1; j++) {
+      let totalCountBinOne = getNumberOfOnes(arr[j].toString(2));
+      let totalCountBinTwo = getNumberOfOnes(arr[j + 1].toString(2));
+
+      if (totalCountBinOne > totalCountBinTwo) {
+        let temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      } else if (totalCountBinOne === totalCountBinTwo) {
+        if (arr[j] > arr[j + 1]) {
+          let temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+    }
+  }
+  return arr;
+}
+
+console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]));
