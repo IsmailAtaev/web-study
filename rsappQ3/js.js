@@ -219,7 +219,7 @@ function f4() {
 }
 
 
-console.log(f4());*/
+console.log(f4());
 
 function getNumberOfOnes(binaryStr) {
   let totalCount = 0;
@@ -254,3 +254,20 @@ function sortByBit(arr) {
 }
 
 console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]));
+*/
+
+function myLanguages(results) {
+
+    let entries = Object.entries(results);
+    console.log(entries)
+    entries.sort((a, b) =>  a[1] - b[1]);
+    console.log(entries);
+    let arr = new Array();
+    entries.map(([key, val] = entry) => {
+        if (val >= 60) arr.push(key);
+    });
+    return arr.reverse();
+}
+
+let ee = myLanguages({"Hindi" : 60, "Greek" : 71, "Dutch" : 93});
+console.log(ee);
