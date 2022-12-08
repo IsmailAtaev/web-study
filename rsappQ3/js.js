@@ -255,7 +255,7 @@ function sortByBit(arr) {
 
 console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1]));
 */
-
+/*
 function myLanguages(results) {
 
     let entries = Object.entries(results);
@@ -270,4 +270,5 @@ function myLanguages(results) {
 }
 
 let ee = myLanguages({"Hindi" : 60, "Greek" : 71, "Dutch" : 93});
-console.log(ee);
+console.log(ee);*/
+

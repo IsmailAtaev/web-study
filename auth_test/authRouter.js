@@ -16,6 +16,7 @@ router.post(
   ],
   controller.registration
 );
+
 router.post("/login", controller.login);
 router.get("/users", authMiddleware, controller.getUsers);
 
